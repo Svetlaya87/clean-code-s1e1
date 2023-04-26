@@ -18,6 +18,8 @@ var completedTasksHolder=document.getElementById("completed-tasks");//completed-
 var createNewTaskElement=function(taskString){
 
     var listItem=document.createElement("li");
+    listItem.className="list-tasks__li list-tasks__li_list-style" 
+    //т.к в css заменили тег li на класс, то здесь класс для новых элементов приходится добавлять
 
     //input (checkbox)
     var checkBox=document.createElement("input");//checkbx
@@ -33,18 +35,22 @@ var createNewTaskElement=function(taskString){
     var deleteButtonImg=document.createElement("img");//delete button image
 
     label.innerText=taskString;
-    label.className='task';
+    label.className='task list-tasks__label'; // было в css li > label
 
     //Each elements, needs appending
     checkBox.type="checkbox";
+
+    // в css  заменили li > input[type="checkbox"] на  list-tasks__input_margin, поэтому для нового элемента добавляем стили
+    checkBox.className="input list-tasks__input_margin";
     editInput.type="text";
-    editInput.className="task";
+    editInput.className="task input list-tasks__input_input-tasks";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
+    editButton.className="button button_outline_none edit";
 
-    deleteButton.className="delete";
+    deleteButton.className="button button_outline_none delete";
     deleteButtonImg.src='./remove.svg';
+    deleteButtonImg.className="button__img"; // в css было button.delete img
     deleteButton.appendChild(deleteButtonImg);
 
 
