@@ -34,6 +34,14 @@
   margin: 0 auto 0;
 }
 
+#top-section-for-adding-element-to-list {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 .todo-size {
   width: 56%;
   display: inline-block;
