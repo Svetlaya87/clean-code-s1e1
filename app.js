@@ -10,7 +10,7 @@
 
 var taskInput=document.getElementById("new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
+var incompleteTaskHolder=document.getElementById("incomplete-tasks");//ul of #incompleteTasks
 var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
 
 
@@ -18,7 +18,7 @@ var completedTasksHolder=document.getElementById("completed-tasks");//completed-
 var createNewTaskElement=function(taskString){
 
     var listItem=document.createElement("li");
-    listItem.className="list-tasks__li list-tasks__li_list-style" 
+    listItem.className="list-tasks__li" 
     //т.к в css заменили тег li на класс, то здесь класс для новых элементов приходится добавлять
 
     //input (checkbox)
@@ -35,20 +35,20 @@ var createNewTaskElement=function(taskString){
     var deleteButtonImg=document.createElement("img");//delete button image
 
     label.innerText=taskString;
-    label.className='task list-tasks__label'; // было в css li > label
+    label.className='todo-size list-tasks__label'; // было в css li > label
 
     //Each elements, needs appending
     checkBox.type="checkbox";
 
     // в css  заменили li > input[type="checkbox"] на  list-tasks__input_margin, поэтому для нового элемента добавляем стили
-    checkBox.className="input list-tasks__input_margin";
+    checkBox.className="list-tasks__input_margin";
     editInput.type="text";
-    editInput.className="task input list-tasks__input_input-tasks";
+    editInput.className="todo-size list-tasks__input";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="button button_outline_none edit";
+    editButton.className="button button_edit";
 
-    deleteButton.className="button button_outline_none delete";
+    deleteButton.className="button button_delete";
     deleteButtonImg.src='./remove.svg';
     deleteButtonImg.className="button__img"; // в css было button.delete img
     deleteButton.appendChild(deleteButtonImg);
@@ -90,12 +90,12 @@ var editTask=function(){
 
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".edit");
-    var containsClass=listItem.classList.contains("editMode");
+    var editBtn=listItem.querySelector(".button_edit");
+    var containsClass=listItem.classList.contains("switchMode");
     //If class of the parent is .editmode
     if(containsClass){
 
-        //switch to .editmode
+        //switch to .switchMode
         //label becomes the inputs value.
         label.innerText=editInput.value;
         editBtn.innerText="Edit";
@@ -104,8 +104,8 @@ var editTask=function(){
         editBtn.innerText="Save";
     }
 
-    //toggle .editmode on the parent.
-    listItem.classList.toggle("editMode");
+    //toggle .switchmode on the parent.
+    listItem.classList.toggle("switchMode");
 };
 
 
@@ -162,8 +162,8 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
     var checkBox=taskListItem.querySelector("input[type=checkbox]");
-    var editButton=taskListItem.querySelector("button.edit");
-    var deleteButton=taskListItem.querySelector("button.delete");
+    var editButton=taskListItem.querySelector(".button_edit");
+    var deleteButton=taskListItem.querySelector(".button_delete");
 
 
     //Bind editTask to edit button.
