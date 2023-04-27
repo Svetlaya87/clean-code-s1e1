@@ -91,7 +91,7 @@ var editTask=function(){
     var editInput=listItem.querySelector('input[type=text]');
     var label=listItem.querySelector("label");
     var editBtn=listItem.querySelector(".button_edit");
-    var containsClass=listItem.classList.contains("switchMode");
+    var containsClass=listItem.classList.contains("switch-mode");
     //If class of the parent is .editmode
     if(containsClass){
 
@@ -105,7 +105,7 @@ var editTask=function(){
     }
 
     //toggle .switchmode on the parent.
-    listItem.classList.toggle("switchMode");
+    listItem.classList.toggle("switch-mode");
 };
 
 

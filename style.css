@@ -176,11 +176,11 @@ button {
   display: none;
 }
 
-/*.list-tasks__li*/.switchMode .list-tasks__input {
+/*.list-tasks__li*/.switch-mode .list-tasks__input {
   display: inline-block;
   width: 224px;
 }
 
-/*.list-tasks__li*/.switchMode .list-tasks__label {
+/*.list-tasks__li*/.switch-mode .list-tasks__label {
   display: none;
 }
