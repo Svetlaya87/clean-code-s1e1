@@ -42,7 +42,7 @@
   margin-inline-end: 0px;
 }
 
-.todo-size {
+.task-name {
   width: 56%;
   display: inline-block;
   flex-grow: 1;

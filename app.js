@@ -35,7 +35,7 @@ var createNewTaskElement=function(taskString){
     var deleteButtonImg=document.createElement("img");//delete button image
 
     label.innerText=taskString;
-    label.className='todo-size list-tasks__label'; // было в css li > label
+    label.className='task-name list-tasks__label'; // было в css li > label
 
     //Each elements, needs appending
     checkBox.type="checkbox";
@@ -43,7 +43,7 @@ var createNewTaskElement=function(taskString){
     // в css  заменили li > input[type="checkbox"] на  list-tasks__input_margin, поэтому для нового элемента добавляем стили
     checkBox.className="list-tasks__input_margin";
     editInput.type="text";
-    editInput.className="todo-size list-tasks__input";
+    editInput.className="task-name list-tasks__input";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
     editButton.className="button button_edit";
